@@ -3,7 +3,9 @@ import styles from './hero.module.scss'
 
 const hero = () => {
   return (
-    <div className={styles.container}>hero</div>
+    <div className={styles.hero}>
+      <img src="./hero_logo.png" alt="glam-hair-studio-logo" className={styles.hero__logo} />
+    </div>
   )
 }
 

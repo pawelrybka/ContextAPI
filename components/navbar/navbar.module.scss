@@ -1,14 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
 $black: rgb(0, 0, 0);
 
 .navbar{
     display: flex;
     justify-content: space-between;
-    background-color: rgba($color: $black , $alpha: .7);
+    background-color: rgba($color: $black , $alpha: 1);
     height: 8vh;
     width: 100%;
     position: fixed;
     z-index: 1;
-    backdrop-filter: blur(8px);
     .navbar__logo{
         height: 8vh;
         margin-left: .7rem;
@@ -20,22 +21,60 @@ $black: rgb(0, 0, 0);
         align-items: center;
         list-style-type: none;
         position: absolute;
+        background-color: rgba($color: $black , $alpha: .7);
+        backdrop-filter: blur(.5rem);
         top: 8vh;
-        left: 0;
         right: 0;
         height: 92vh;
+        width: 100%;
         gap: 4rem;
-        background-color: red;
+        transform: translate(100%);
+        transition: ease-in-out .3s;
         li a{
             color: white;
             text-decoration: none;
         }
+        @media screen and (min-width:900px) {
+            transform: none;
+            position: static;
+            height: fit-content;
+            width: fit-content;
+            flex-direction: row;
+            margin: auto;
+            margin-right: 2rem;
+        }
+    }
+    .active{
+        transform: translate(0);
     }
     button{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        margin-right: 1rem;
+        gap: 5px;
         width: 3rem;
         height: 3rem;
-        background-color: green;
-        margin: .6rem;
+        background-color: transparent;
+        border: none;
+        div{
+            width: 80%;
+            height: 2px;
+            background-color: white;
+            transition: ease-in-out .3s;
+        }
+        .active:nth-child(1){
+            transform: translateY(3px) rotate(45deg)
+        }
+
+        .active:nth-child(2){
+            transform:  translateY(-3px) rotate(-45deg);   
+        }
+        @media screen and (min-width:900px) {
+            display: none;
+        }
     }
 }
 
