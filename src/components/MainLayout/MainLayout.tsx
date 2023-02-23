@@ -1,14 +1,36 @@
-import { ReactNode } from 'react';
-import styles from './MainLayout.module.css';
-import React from 'react';
+import React, { useState } from "react";
+import { ListProps, Todo } from "../../assets/types";
+import TodosContext from "../Context/Context";
+import styles from './MainLayout.module.css'
 
-type MainLayoutProps = {
-	children: ReactNode;
+
+const TodosProvider = ( {children}: ListProps ) => {
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [idCounter, setIdCounter] = useState(0);
+
+  const addTodo = (text: string) => {
+    const newTodo = {
+      id: idCounter,
+      text: text,
+    };
+    setTodos([...todos, newTodo]);
+    setIdCounter(idCounter + 1);
+  };
+
+  const removeTodo = (id: number) => {
+    const newTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(newTodos);
+  };
+
+  return (
+    <div className={styles.root}>
+      <TodosContext.Provider value={{ todos, addTodo, removeTodo }}>
+        {children}
+      </TodosContext.Provider>
+    </div>
+   
+  );
 };
 
-const MainLayout = ({ children }: MainLayoutProps) => {
-	return <div className={styles.root}>{children}</div>;
-};
-
-export default MainLayout
+export default TodosProvider;
 
