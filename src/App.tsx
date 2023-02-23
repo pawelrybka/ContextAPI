@@ -14,7 +14,6 @@ function App () {
       <ButtonSection/>
       <Footer/> 
     </MainLayout>
-   
   )
 }
 

@@ -4,7 +4,7 @@ import React from 'react'
 const Header = () => {
   return (
     <div className={styles.header}>
-      Header
+      
     </div>
   )
 }
