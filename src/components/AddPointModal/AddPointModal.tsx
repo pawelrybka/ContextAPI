@@ -1,11 +1,13 @@
 import React from 'react'
 import styles from './AddPointModal.module.css'
 import TodosContext from '../Context/Context';
-import { useState, ChangeEvent } from 'react';
+import { useState, useContext, ChangeEvent } from 'react';
 
 const AddPointModal = () => {
+  
   const [inputValue, setInputValue] = useState("");
-  const { addTodo } = React.useContext(TodosContext);
+  
+  const { addTodo } = useContext(TodosContext);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);

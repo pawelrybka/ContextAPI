@@ -1,7 +1,7 @@
-import React from "react";
 import { TodosContextType } from "../../assets/types";
+import { createContext } from "react";
 
-const TodosContext = React.createContext<TodosContextType>({
+const TodosContext = createContext<TodosContextType>({
   todos: [],
   addTodo: () => {},
   removeTodo: () => {},

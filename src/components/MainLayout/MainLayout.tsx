@@ -3,7 +3,6 @@ import { ListProps, Todo } from "../../assets/types";
 import TodosContext from "../Context/Context";
 import styles from './MainLayout.module.css'
 
-
 const TodosProvider = ( {children}: ListProps ) => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [idCounter, setIdCounter] = useState(0);

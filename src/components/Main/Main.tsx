@@ -1,11 +1,11 @@
 import React from 'react'
 import styles from './Main.module.css'
 import TodosContext from '../Context/Context'
-
+import { useContext } from 'react'
 
 const Main = () => {
   
-  const { todos, removeTodo } = React.useContext(TodosContext);
+  const { todos, removeTodo } = useContext(TodosContext);
 
   const handleRemoveTodo = (id: number) => {
     removeTodo(id);
@@ -22,7 +22,6 @@ const Main = () => {
         ))}
       </ul>
     </div>  
-    
   )
 }
 

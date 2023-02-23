@@ -1,5 +1,10 @@
 .main{
     flex: 1;
     background-color: purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+
 
