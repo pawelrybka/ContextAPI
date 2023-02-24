@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './AddPointButton.module.css'
 import AddPointModal from '../AddPointModal/AddPointModal'
 import { useState } from 'react'
+import Backdrop from '../Backdrop/Backdrop'
 
 const AddPointButton = () => {
   
@@ -12,7 +13,8 @@ const AddPointButton = () => {
   return (
     <>
       <button className={styles.addpointbutton} onClick={handleClick}>AddPointButton</button>
-      {visible && <AddPointModal />}
+      {visible && <AddPointModal visible={visible} setVisible={setVisible}/>}
+      <Backdrop visible={visible} setVisible={setVisible}/>
     </>
 
   )

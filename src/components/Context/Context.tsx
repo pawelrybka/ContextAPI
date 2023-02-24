@@ -5,7 +5,7 @@ const TodosContext = createContext<TodosContextType>({
   todos: [],
   addTodo: () => {},
   removeTodo: () => {},
+
 });
 
 export default TodosContext;
-

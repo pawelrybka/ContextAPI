@@ -27,7 +27,6 @@ const TodosProvider = ( {children}: ListProps ) => {
         {children}
       </TodosContext.Provider>
     </div>
-   
   );
 };
 
