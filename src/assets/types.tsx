@@ -1,15 +1,15 @@
-export interface Todo {
+export type Todo = {
     id: number;
     text: string;
 }
   
-export interface TodosContextType {
+export type TodosContextType = {
     todos: Todo[];
     addTodo: (text: string) => void;
     removeTodo: (id: number) => void;
 }
 
-export interface ListProps {
+export type ListProps = {
     children: React.ReactNode;
 }
 

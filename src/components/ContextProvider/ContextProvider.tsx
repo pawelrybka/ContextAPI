@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { ListProps, Todo } from "../../assets/types";
-import TodosContext from "../Context/Context";
-import styles from './MainLayout.module.css'
+import Context from "../Context/Context";
+import styles from './ContextProvider.module.css'
 
-const TodosProvider = ( {children}: ListProps ) => {
+const ContextProvider = ( {children}: ListProps ) => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [idCounter, setIdCounter] = useState(0);
 
@@ -23,12 +23,12 @@ const TodosProvider = ( {children}: ListProps ) => {
 
   return (
     <div className={styles.root}>
-      <TodosContext.Provider value={{ todos, addTodo, removeTodo }}>
+      <Context.Provider value={{ todos, addTodo, removeTodo }}>
         {children}
-      </TodosContext.Provider>
+      </Context.Provider>
     </div>
   );
 };
 
-export default TodosProvider;
+export default ContextProvider;
 

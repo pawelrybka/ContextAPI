@@ -13,7 +13,7 @@ const AddPointButton = () => {
   return (
     <>
       <button className={styles.addpointbutton} onClick={handleClick}>AddPointButton</button>
-      {visible && <AddPointModal visible={visible} setVisible={setVisible}/>}
+      <AddPointModal visible={visible} setVisible={setVisible}/>
       <Backdrop visible={visible} setVisible={setVisible}/>
     </>
 

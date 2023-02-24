@@ -29,7 +29,7 @@ const AddPointModal = ({ visible, setVisible }: props) => {
   };
 
   return (
-    <div className={styles.addpointmodal}>
+    <div className={`${styles.addpointmodal} ${visible ? styles.visible : ''}`}>
       <div className={styles.buttons}>
         <button onClick={handleClose}>X</button>
       </div>

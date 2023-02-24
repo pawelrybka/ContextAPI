@@ -5,22 +5,15 @@ import { useContext } from 'react'
 
 const Main = () => {
   
-  const { todos, removeTodo } = useContext(TodosContext);
-
-  const handleRemoveTodo = (id: number) => {
-    removeTodo(id);
-  };
+  const { todos } = useContext(TodosContext);
   
   return (
     <div className={styles.main}>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            {todo.text}{" "}
-            <button onClick={() => handleRemoveTodo(todo.id)}>Remove</button>
-          </li>
-        ))}
-      </ul>
+      {todos.map((todo) => (
+        <button key={todo.id} className={styles.point}>
+          {todo.text}
+        </button>
+      ))}
     </div>  
   )
 }
