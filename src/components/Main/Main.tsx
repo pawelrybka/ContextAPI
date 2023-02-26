@@ -5,20 +5,31 @@ import { useContext, useState } from 'react'
 import PointConfiguration from '../PointConfiguration/PointConfiguration'
 
 const Main = () => {
+  
   const { todos } = useContext(TodosContext);
 
   const[visible, setVisible] = useState(false)
+  const [selectedItemId, setSelectedItemId] = useState<number | null>(null);
 
-  const handleClick = () => setVisible(!visible)
-
+  const handleClick = (todoId: number) => {
+    setSelectedItemId(todoId);
+    setVisible(!visible)
+  }
+ 
   return (
     <div className={styles.main}>
       {todos.map((todo) => (
-        <button key={todo.id} className={styles.point} onClick={handleClick}>
+        <button key={todo.id} className={styles.point} onClick={() => handleClick(todo.id)}>
           {todo.text}
-          <PointConfiguration visible={visible} setVisible={setVisible}/>
         </button>
       ))}
+      {selectedItemId && (
+        <PointConfiguration 
+          visible={visible} 
+          setVisible={setVisible}
+          todo={todos.find((todo) => todo.id === selectedItemId)!}
+        />
+      )}
     </div>  
   )
 }
