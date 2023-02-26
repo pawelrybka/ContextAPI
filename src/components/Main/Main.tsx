@@ -9,6 +9,7 @@ const Main = () => {
   const { todos } = useContext(TodosContext);
 
   const[visible, setVisible] = useState(false)
+  
   const [selectedItemId, setSelectedItemId] = useState<number | null>(null);
 
   const handleClick = (todoId: number) => {
@@ -16,6 +17,8 @@ const Main = () => {
     setVisible(!visible)
   }
  
+  console.log(todos)
+
   return (
     <div className={styles.main}>
       {todos.map((todo) => (

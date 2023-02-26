@@ -5,7 +5,7 @@ import styles from './ContextProvider.module.css'
 
 const ContextProvider = ( {children}: ListProps ) => {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [idCounter, setIdCounter] = useState(0);
+  const [idCounter, setIdCounter] = useState(1);
 
   const addTodo = (text: string) => {
     const newTodo = {
