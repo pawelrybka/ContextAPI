@@ -6,14 +6,13 @@ type props = {
     id: number
     text: string
   }
-  visible: boolean
-  setVisible: React.Dispatch<React.SetStateAction<boolean>>
+  handleDisable: () => void
 }
 
-const PointConfiguration = ({ visible, setVisible, todo}: props) => {
+const PointConfiguration = ({ handleDisable, todo}: props) => {
   return (
-    <div className={`${styles.pointconfiguration} ${visible ? styles.visible : ''}`}>
-      <button onClick={() => setVisible(!visible)}>X</button>
+    <div className={styles.pointconfiguration}>
+      <button onClick={handleDisable}>X</button>
       <div>
         <h2>{todo.text}</h2>
       </div>

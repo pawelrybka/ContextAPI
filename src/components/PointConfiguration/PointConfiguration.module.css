@@ -6,11 +6,7 @@
     height: 30rem;
     transform: translate(-50%, -50%);
     background-color: black;
-    visibility: hidden;
 }
 
-.visible{
-    visibility: visible;
-}
 
 
