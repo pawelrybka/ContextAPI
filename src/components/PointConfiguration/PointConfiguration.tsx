@@ -7,10 +7,12 @@ type props = {
     id: number
     text: string
   }
-  handleDisable: () => void
+  visible: boolean
+  setVisible: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const PointConfiguration = ({ handleDisable, todo}: props) => {
+
+const PointConfiguration = ({ visible, setVisible, todo}: props) => {
   return (
     <motion.div 
       className={styles.pointconfiguration}
@@ -19,7 +21,7 @@ const PointConfiguration = ({ handleDisable, todo}: props) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <button onClick={handleDisable}>X</button>
+      <button onClick={() => setVisible(!visible)}>X</button>
       <div>
         <h2>{todo.text}</h2>
       </div>

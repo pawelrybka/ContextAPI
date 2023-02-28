@@ -6,6 +6,7 @@
     height: 30rem;
     transform: translate(-50%, -50%);
     background-color: black;
+    z-index: 2;
 }
 
 

@@ -6,21 +6,19 @@ import PointConfiguration from '../PointConfiguration/PointConfiguration'
 import { AnimatePresence } from "framer-motion";
 import Backdrop from '../Backdrop/Backdrop'
 
-
 const Main = () => {
   
   const { todos } = useContext(Context);
   
+  const [visible, setVisible] = useState(false)
+
   const [selectedItemId, setSelectedItemId] = useState<number | null>(null);
 
   const handleClick = (todoId: number) => {
+    setVisible(!visible)
     setSelectedItemId(todoId);
   }
- 
-  const handleDisable = () => {
-    setSelectedItemId(null)
-  }
-
+  
   return (
     <div className={styles.main}>
       {todos.map((todo) => (
@@ -29,12 +27,19 @@ const Main = () => {
         </button>
       ))}
       <AnimatePresence>
-        {selectedItemId && (
-          <PointConfiguration 
-            handleDisable={handleDisable}
-            todo={todos.find(todo => todo.id === selectedItemId)}
-          />
-        )}
+        {visible && 
+          <>
+            <PointConfiguration 
+              visible={visible}
+              setVisible={setVisible}
+              todo={todos.find(todo => todo.id === selectedItemId)}
+            />
+            <Backdrop
+              visible={visible}
+              setVisible={setVisible}
+            />
+          </>
+        }
       </AnimatePresence>  
     </div>  
   )
