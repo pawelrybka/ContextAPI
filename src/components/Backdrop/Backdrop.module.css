@@ -6,14 +6,7 @@
     height: 100%;
     backdrop-filter: blur(20px);
     z-index: 1;
-    visibility: hidden;
-    opacity: 0;
     transition: .3s ease-in-out;
-}
-
-.visible{
-    visibility: visible;
-    opacity: 1;
 }
 
 

@@ -3,7 +3,9 @@ import styles from './Main.module.css'
 import Context from '../Context/Context'
 import { useContext, useState } from 'react'
 import PointConfiguration from '../PointConfiguration/PointConfiguration'
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+import Backdrop from '../Backdrop/Backdrop'
+
 
 const Main = () => {
   
@@ -26,22 +28,12 @@ const Main = () => {
           {todo.text}
         </button>
       ))}
-      
       <AnimatePresence>
         {selectedItemId && (
-        <motion.div 
-          key="box"
-          initial={{ y: "50%", opacity: 0, scale: 0.5 }}
-          animate={{ y: 0, opacity: 1, scale: 1 }}
-          exit={{ y: "50%", opacity: 0 }}
-          transition={{duration: 0.2, ease: "easeOut"}}
-          className={styles.info}
-        >
           <PointConfiguration 
             handleDisable={handleDisable}
             todo={todos.find(todo => todo.id === selectedItemId)}
           />
-        </motion.div>
         )}
       </AnimatePresence>  
     </div>  
@@ -49,5 +41,6 @@ const Main = () => {
 }
 
 export default Main
+
 
 

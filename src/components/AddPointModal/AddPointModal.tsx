@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './AddPointModal.module.css'
 import TodosContext from '../Context/Context';
 import { useState, useContext, ChangeEvent } from 'react';
+import { motion } from "framer-motion"
 
 type props = {
   visible: boolean
@@ -29,7 +30,13 @@ const AddPointModal = ({ visible, setVisible }: props) => {
   };
 
   return (
-    <div className={`${styles.addpointmodal} ${visible ? styles.visible : ''}`}>
+    <motion.div 
+      className={styles.addpointmodal}
+      initial={{  opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       <div className={styles.buttons}>
         <button onClick={handleClose}>X</button>
       </div>
@@ -37,7 +44,7 @@ const AddPointModal = ({ visible, setVisible }: props) => {
         <input type="text" value={inputValue} onChange={handleInputChange} />
         <button onClick={handleAddTodo}>Add</button>
       </form>
-    </div>
+    </motion.div>
   )
 }
 

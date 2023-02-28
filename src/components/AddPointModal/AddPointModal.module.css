@@ -10,8 +10,6 @@
     flex-direction: column;
     gap: 10rem;
     z-index: 2;
-    visibility: hidden;
-    opacity: 0;
     transition: .3s ease-in-out;
 }
 
@@ -30,7 +28,3 @@ form{
     justify-content: center;
 }
 
-.visible{
-    visibility: visible;
-    opacity: 1;
-}
